@@ -1,0 +1,14 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: 'minecraft-server'
+    metrics_path: /metrics
+    static_configs:
+      - targets: ['10.1.2.3:3000']
+        labels:
+          server_name: 'node_exporter'
+      - targets: ['10.1.2.10:9225']
+        labels:
+          server_name: 'minecraft'
